@@ -1,25 +1,33 @@
 "use strict";
 //----------
-// tuples
+// interfaces
 //----------
-let person = ['Luffy', 30, true];
+const authorOne = {
+    name: 'Luffy',
+    avatar: '/img/luffy.png'
+};
+const newPost = {
+    title: 'How to become a pirate',
+    body: 'Guide on how to sail the Grand Line',
+    tags: ['pirates', 'anime', 'sea'],
+    created_at: new Date(),
+    author: authorOne
+};
+console.log(newPost);
 //----------
-// tuples examples
+// as function argument types
 //----------
-let hsla;
-hsla = [200, '100%', '50%', 1];
-let xy;
-xy = [94.7, 21.3];
-function useCoords() {
-    // get coords
-    const lat = 100;
-    const long = 50;
-    return [lat, long];
+function createPost(post) {
+    console.log(`
+    |------------------------------------------------|
+     Created post ${post.title} by ${post.author.name}
+    |------------------------------------------------|
+    `);
 }
-const [lat, long] = useCoords();
+createPost(newPost);
 //----------
-// named tuples
+// with arrays
 //----------
-let user;
-user = ['Luffy', 17];
-console.log(user[0]);
+let posts = [];
+posts.push(newPost);
+console.log(posts);
