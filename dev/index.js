@@ -1,33 +1,22 @@
 "use strict";
 //----------
-// interfaces
+// type aliases
 //----------
-const authorOne = {
-    name: 'Luffy',
-    avatar: '/img/luffy.png'
-};
-const newPost = {
-    title: 'How to become a pirate',
-    body: 'Guide on how to sail the Grand Line',
-    tags: ['pirates', 'anime', 'sea'],
-    created_at: new Date(),
-    author: authorOne
-};
-console.log(newPost);
-//----------
-// as function argument types
-//----------
-function createPost(post) {
-    console.log(`
-    |------------------------------------------------|
-     Created post ${post.title} by ${post.author.name}
-    |------------------------------------------------|
-    `);
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return [r, g, b];
 }
-createPost(newPost);
-//----------
-// with arrays
-//----------
-let posts = [];
-posts.push(newPost);
-console.log(posts);
+const colorOne = getRandomColor();
+const colorTwo = getRandomColor();
+console.log(colorOne, colorTwo);
+const userOne = {
+    name: 'Luffy',
+    score: 25
+};
+function formatUser(user) {
+    console.log(`${user.name}: ${user.score}`);
+}
+formatUser(userOne);
+formatUser({ name: 'Zoro', score: 24 });
