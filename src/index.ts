@@ -1,58 +1,36 @@
 //--------
-// arrays
+// functions
 //--------
 
-let names: string[] = ['Luffy', 'Zoro', 'Usopp'];
-let ages: number[] = [17, 19, 17];
-
-names.push('Nami')
-ages.push(18)
-
-let multi: (string | number | boolean)[] = [1, true, 'hello']
-
-const m: string | number | boolean = multi[0];
-
-
-//----------------------------
-// type inference with arrays
-//----------------------------
-
-let fruits = ['gum-gum', 'flower-flower', 'ice-ice', 'human-human'];
-
-fruits.push('revive-revive')
-
-const f = fruits[3]
-
-console.log(f);
-
-let things: (string | number | boolean)[] = [1, true, 'hello']
-
-const t: string | number | boolean = things[0];
-
-
-//-----------------
-// object literals
-//-----------------
-
-const user: {firstName: string, age: number, id: number} = {
-    firstName: 'Luffy',
-    age: 17,
-    id: 1
+function addTwoNumbers(a: number, b: number): number {
+    return a + b;
 };
 
-user.firstName = 'Zoro'
-user.id = 2
+const subtractTwoNumbers = (a: number, b: number): number => {
+    return a - b;
+};
+ 
+addTwoNumbers(2, 7);
+subtractTwoNumbers(20, 15);
 
-//----------------------------
-// type inference object literals
-//----------------------------
+function addAllNumbers(items: number[]): number {
+    const total = items.reduce((a, c) => a + c, 0)
+    console.log(total)
 
-let person = {
-    name: 'Luffy',
-    score: 35
+    return total;
 }
 
-person.name = 'Franky'
-person.score = 40
+addAllNumbers([5, 7, 9, 11, 3, 5, 1])
 
-const score = person.score
+//--------
+// return type inference
+//--------
+
+function formatGreeting(name: string, greeting: string) {
+    return `${greeting}, ${name}`;
+}
+
+const results = formatGreeting('Luffy', 'hello');
+
+console.log(results);
+
