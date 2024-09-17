@@ -1,30 +1,35 @@
 "use strict";
-//----------
-// reusable interfaces
-//----------
-// not allowed
-// const something: hasQuantity = { title: 'hello', quantity: 50 }
-// allowed
-// const something: hasQuantity = { quantity: 50 }
-function printQuantity(item) {
-    // can only access known properties - quantity
-    console.log(`the quantity of the item is ${item.quantity}`);
+//--------------------
+// function signatures
+//--------------------
+function addTwoNumbers(a, b) {
+    return a + b;
 }
-const fruit = {
-    name: 'mango',
-    quantity: 50,
+function multiplyTwoNumbers(first, second) {
+    return first * second;
+}
+function squareNumber(num) {
+    return num * num;
+}
+function joinTwoNumbers(numOne, numTwo) {
+    return `${numOne}${numTwo}`;
+}
+let calcs = [];
+calcs.push(addTwoNumbers);
+calcs.push(multiplyTwoNumbers);
+// calcs.push(joinTwoNumbers) ---> not allowed //
+calcs.push(squareNumber);
+const shapeOne = {
+    name: 'square',
+    calcArea(l) {
+        return l * l;
+    }
 };
-const vehicle = {
-    type: 'car',
-    quantity: 3,
+const shapeTwo = {
+    name: 'circle',
+    calcArea(r) {
+        return (Math.PI * r ^ 2);
+    }
 };
-const person = {
-    name: 'Luffy',
-    age: 17,
-};
-printQuantity(fruit);
-printQuantity(vehicle);
-// printQuantity(person) --> not allowed
-// passing object literals directly has to
-// include only known interface properties
-// printQuantity({ quantity: 50, title: 'something' })
+shapeOne.calcArea(5);
+shapeTwo.calcArea(10);
