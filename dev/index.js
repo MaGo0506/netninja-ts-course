@@ -19,9 +19,12 @@ class Pizza {
         this.base = base;
     }
 }
-const pizza = new Pizza('luffy special', 15);
-pizza.addTopping('mushrooms');
-pizza.addTopping('peperoni');
-pizza.addTopping('cheese');
-pizza.selectBase('thick');
-console.log(pizza);
+const pizzaOne = new Pizza('luffy special', 15);
+const pizzaTwo = new Pizza('zoro special', 10);
+function addMushroomsToPizzas(pizzas) {
+    for (const p of pizzas) {
+        p.addTopping('mushrooms');
+    }
+}
+addMushroomsToPizzas([pizzaOne, pizzaTwo]);
+console.log(pizzaOne, pizzaTwo);
