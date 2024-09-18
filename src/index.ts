@@ -5,15 +5,10 @@
 type Base = 'classic' | 'thick' | 'thin' | 'garlic'
 
 class Pizza {
-    constructor(title: string, price: number) {
-        this.title = title
-        this.price = price
-    }
+    constructor(private title: string, private price: number) {}
     
-    title: string
-    price: number
-    base: Base = 'classic'
-    toppings: string[] = []
+    private base: Base = 'classic'
+    private toppings: string[] = []
 
     addTopping(topping: string): void {
         this.toppings.push(topping);
@@ -32,5 +27,6 @@ pizza.addTopping('mushrooms')
 pizza.addTopping('peperoni')
 pizza.addTopping('cheese')
 pizza.selectBase('thick')
+
 
 console.log(pizza);
